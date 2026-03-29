@@ -135,12 +135,49 @@ Standardized **Kubernetes Probes** (`/api/healthz`) validate liveness of Azure O
 
 ```text
 .
-├── backend/                # Core FastAPI Server & Evaluation Logic
-├── frontend/               # React (Vite) Chat Interface
-├── demo/                   # Evaluation Sandbox (Native scripts & Sample PDF)
-├── developer_note.md       # [HIDDEN] Detailed Enterprise Response Note
+├── backend/                # FastAPI Production API
+│   ├── extractors/         # O365, Wikipedia & Data Ingestion
+│   ├── evaluators/         # RAGAS Quality Metrics (MLOps)
+│   └── main.py             # Security, PII & Audit Logic
+├── frontend/               # React (Vite) UI
+│   ├── src/                # Chat Components & API Linkage
+│   └── Dockerfile          # Multi-stage Cloud Build
+├── demo/                   # Evaluation Sandbox
+│   ├── sample_data/        # Synthetic Financial PDFs
+│   └── start_demo.bat/sh   # Unified 1-Click Entry Suite
 └── README.md               # Unified Architecture & Usage Guide
 ```
+
+## Demo Assessment Flow
+
+```mermaid
+graph LR
+    START[Unified Menu] --> OP1[1. Public Ingestion]
+    START --> OP2[2. Enterprise Sync]
+    START --> OP3[3. MLOps Evaluation]
+    START --> OP4[4. Full-Stack Demo]
+    START --> OP6[6. Cloud Full-Stack]
+
+    OP1 --> OUT1[Live Wikipedia Extract]
+    OP2 --> OUT2[O365 Sync & Rate Limit Logs]
+    OP3 --> OUT3[RAGAS Quality Scores]
+    OP4 --> OUT4[React UI + FastAPI Chat]
+    OP6 --> OUT6[Public Azure URL + Teardown]
+
+    style OUT1 fill:#2d2d2d,stroke:#0078D4
+    style OUT2 fill:#2d2d2d,stroke:#0078D4
+    style OUT3 fill:#2d2d2d,stroke:#0078D4
+    style OUT4 fill:#2d2d2d,stroke:#0078D4
+    style OUT6 fill:#2d2d2d,stroke:#0078D4
+```
+
+| Option | Assessment Mode | Environment | RAG Strategy | Expected Output |
+| :--- | :--- | :--- | :--- | :--- |
+| **1** | **Public Ingestion** | Local | Wikipedia API | Proof-of-Concept: Ingesting live OS data |
+| **2** | **Enterprise Sync** | Local | O365/Rate Limits | Technical Proof: Scale & Error Handling |
+| **3** | **MLOps Evaluation** | Local | RAGAS Evaluator | Quality Proof: Faithfulness & Relevance |
+| **4** | **Full-Stack Demo** | Local | FastAPI + React | Integration Proof: End-to-End Chat UI |
+| **6** | **Cloud Full-Stack** | **Azure ACA** | Production RAG | Hosting Proof: Scalable Cloud Architecture |
 
 ---
 
@@ -172,6 +209,6 @@ Standardized **Kubernetes Probes** (`/api/healthz`) validate liveness of Azure O
 ---
 
 ## Data & Service Credits
-- **Financial PDF:** Sourced from **WSDOT** for multimodal table extraction testing.
-- **Live Data:** Fetched from **Wikipedia REST APIs**.
+- **Financial PDF:** Sourced from [WSDOT Financial Reports](https://wsdot.wa.gov/finance/financial-reports) for document extraction testing.
+- **Live Data:** Fetched from [Wikipedia Page Content API](https://en.wikipedia.org/api/rest_v1/).
 - **Services:** Powers on **Azure OpenAI (gpt-4o)**, **AI Search**, and **Key Vault**.
