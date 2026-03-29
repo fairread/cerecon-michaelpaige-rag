@@ -160,6 +160,17 @@ Standardized **Kubernetes Probes** (`/api/healthz`) validate liveness of Azure O
 
 ---
 
+## Cloud Deployment
+
+### Option 6 [CLOUD FULL-STACK]
+- Deploys both Frontend and Backend to **Azure Container Apps**.
+- **Build-Time Linkage**: The script automatically injects the Backend's Cloud URL into the React build process.
+
+> [!CAUTION]
+> **Cost Management**: The deployment script now includes an **Interactive Teardown Prompt** at the end. Answering `y` will instantly run `deploy/azure_teardown.sh` to delete all Azure resources. Always decommissioning the resource group after evaluation is critical to ensuring a zero-cost assessment.
+
+---
+
 ## Data & Service Credits
 - **Financial PDF:** Sourced from **WSDOT** for multimodal table extraction testing.
 - **Live Data:** Fetched from **Wikipedia REST APIs**.

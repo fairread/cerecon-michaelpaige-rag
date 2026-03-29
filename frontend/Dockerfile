@@ -1,14 +1,27 @@
-FROM node:20-alpine AS build
+# Stage 1: Build
+FROM node:20-alpine as build
+
 WORKDIR /app
-# Copy the package.json and lockfile if available
+
 COPY package*.json ./
 RUN npm install
+
 COPY . .
+
+# Pass the Backend API URL from Bicep/Deploy script to Vite
+ARG VITE_API_URL
+ENV VITE_API_URL=$VITE_API_URL
+
 RUN npm run build
 
-# Production Environment
-FROM nginx:alpine
+# Stage 2: Serve
+FROM nginx:stable-alpine
+
 COPY --from=build /app/dist /usr/share/nginx/html
-# Expose port (Nginx default)
+
+# Custom nginx config to handle SPA routing if needed
+# COPY nginx.conf /etc/nginx/conf.d/default.conf
+
 EXPOSE 80
+
 CMD ["nginx", "-g", "daemon off;"]

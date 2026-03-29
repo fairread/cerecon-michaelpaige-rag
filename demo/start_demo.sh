@@ -62,11 +62,12 @@ do
     echo " 3. [MLOPS EVALUATION] - RAGAS Quality Metrics (Faithfulness/Relevance) [+]"
     echo " 4. [FULL-STACK DEMO]  - Launch FastAPI Backend + React Frontend"
     echo " 5. [INTERACTIVE]       - Launch Jupyter Notebook (Colab Optimized) [+]"
-    echo " 6. [EXIT]             - Close Assessment Suite"
+    echo " 6. [CLOUD FULL-STACK]  - Deploy & Launch on Azure [+]"
+    echo " 7. [EXIT]             - Close Assessment Suite"
     echo ""
     echo " [+] Requires heavy Enterprise SDKs (Azure, LangChain, OpenAI)"
     echo "------------------------------------------------------"
-    read -p " Selection (1-6): " choice
+    read -p " Selection (1-7): " choice
 
     case $choice in
         1)
@@ -100,6 +101,14 @@ do
             read -p "Press Enter to return to menu..."
             ;;
         6)
+            echo ""
+            echo "Launching Azure Cloud Deployment..."
+            cd ../deploy
+            bash azure_deploy.sh
+            cd ../demo
+            read -p "Press Enter to return to menu..."
+            ;;
+        7)
             echo ""
             echo "Exiting Assessment Suite. Thank you!"
             exit 0

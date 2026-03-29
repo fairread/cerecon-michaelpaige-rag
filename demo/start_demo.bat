@@ -47,12 +47,12 @@ echo  1. [PUBLIC INGESTION] - Live Open-Source Data Demo (Wikipedia)
 echo  2. [ENTERPRISE SYNC]  - O365, Rate Limiting ^& Tombstone Logic [+]
 echo  3. [MLOPS EVALUATION] - RAGAS Quality Metrics (Faithfulness/Relevance) [+]
 echo  4. [FULL-STACK DEMO]  - Launch FastAPI Backend + React Frontend
-echo  5. [INTERACTIVE]       - Launch Jupyter Notebook (Colab Optimized) [+]
-echo  6. [EXIT]             - Close Assessment Suite
+echo  6. [CLOUD FULL-STACK]  - Deploy ^& Launch on Azure [+]
+echo  7. [EXIT]             - Close Assessment Suite
 echo.
 echo  [+] Requires heavy Enterprise SDKs (Azure, LangChain, OpenAI)
 echo ------------------------------------------------------
-set /p choice=" Selection (1-6): "
+set /p choice=" Selection (1-7): "
 
 if "%choice%"=="1" (
     echo.
@@ -90,6 +90,16 @@ if "%choice%"=="5" (
     goto MENU
 )
 if "%choice%"=="6" (
+    echo.
+    echo Launching Azure Cloud Deployment...
+    echo (Requires Azure CLI ^& Git Bash/WSL/Shell)
+    cd ../deploy
+    bash azure_deploy.sh
+    cd ../demo
+    pause
+    goto MENU
+)
+if "%choice%"=="7" (
     echo.
     echo Exiting Assessment Suite. Thank you!
     exit /b 0
