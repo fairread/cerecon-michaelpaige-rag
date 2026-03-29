@@ -1,0 +1,13 @@
+Project Name: Phoenix Cloud Migration Tender
+Date: August 14th, 2023
+Classification: INTERNAL_CONFIDENTIAL
+
+1. PROJECT SCOPE
+The contractor shall migrate 450 legacy on-premise virtual machines to the Azure Enterprise Cloud environment within a strict 6-month timeframe.
+
+2. SECURITY REQUIREMENTS
+All data in transit must be encrypted via TLS 1.3 natively. 
+Data at rest must reside within the West Europe Azure region and utilize Customer-Managed Keys (CMK) configured securely via Azure Key Vault.
+
+3. BUDGETARY CONSTRAINTS
+The maximum allocated budget for external consulting during this migration phase is strictly capped at $120,000 USD. Billing must be submitted on a standard net-30 cadence.

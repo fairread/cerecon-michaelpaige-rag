@@ -1,0 +1,4 @@
+# Requirements locally tailored specifically for the Demo toolkits
+python-dotenv
+tiktoken
+jupyter
